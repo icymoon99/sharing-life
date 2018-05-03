@@ -1,0 +1,24 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: user
+server:
+  port: 18010
+
+mybatis:
+  type-aliases-package: com.rias.sharing.life.user.entity
+
+aliyun:
+  asc:
+    access-key-id: LTAIRyUPzUHWE3aQ
+    access-key-secret: 6AItvovD7Pz8cBeFTJdufKE0A89abt
+
+user:
+  default:
+    nick-name: 新用户
+    sex: 0
+    img-url: https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1524892185424&di=b65ca2fef04227608a9fefec21a83100&imgtype=0&src=http%3A%2F%2Fimages6.fanpop.com%2Fimage%2Fphotos%2F36300000%2FSexy-hot-anime-and-characters-image-sexy-hot-anime-and-characters-36397548-2560-1600.jpg
+  token:
+    time-day: 7
+
