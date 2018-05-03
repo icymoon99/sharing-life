@@ -51,7 +51,7 @@ public class TokenServiceImpl implements TokenService {
 
         if (!Optional.ofNullable(user).isPresent()) {
             // 生成一条用户记录
-            userDao.saveDefaultUser(this.createDefault(phoneCodeVo.getPhone()));
+            userDao.saveUser(this.createDefault(phoneCodeVo.getPhone()));
             log.debug(user.toString());
 
             //取出id

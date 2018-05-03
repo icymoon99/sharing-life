@@ -2,6 +2,7 @@ package com.rias.sharing.life.user.dao;
 
 import com.rias.sharing.life.user.dao.mapper.UserMapper;
 import com.rias.sharing.life.user.entity.User;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Repository;
  * @date: 2018/4/24 18:00
  * @description: 用户表操作类
  */
+@Slf4j
 @Repository
 public class UserDao {
     @Autowired
@@ -24,7 +26,7 @@ public class UserDao {
         return mapper.getUserById(id);
     }
 
-    public void saveDefaultUser (User user) {
+    public void saveUser(User user) {
         mapper.saveUser(user);
     }
 }

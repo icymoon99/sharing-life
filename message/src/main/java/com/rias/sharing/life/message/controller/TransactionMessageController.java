@@ -9,10 +9,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -24,25 +21,49 @@ import javax.validation.Valid;
  */
 @Api(tags="事务消息队列的controller")
 @RestController
-@RequestMapping("/transaction/message")
+@RequestMapping("/transaction/messages")
 @Slf4j
 public class TransactionMessageController {
     @Autowired
     TransactionMessageService transactionMessageService;
 
     @ApiOperation(value = "直接发送事务消息", notes = "直接发送事务消息")
-    @PostMapping("/stream")
+    @PostMapping("/direct/message")
     public Result<String> directSendMessage(
             @ApiParam(name = "TransactionMessageVo", value = "事务消息模型")
             @Valid @RequestBody TransactionMessageVo transactionMessageVo
     ) {
-        boolean result = transactionMessageService.directSendMessage(transactionMessageVo);
-        if (!result) {
-            log.error("send message failed: " + transactionMessageVo);
+        transactionMessageService.directSendMessage(transactionMessageVo);
+        return Result.success();
+    }
 
-            return Result.error(CodeMsg.SEND_TO_SERVICE_ERROR);
-        }
+    @ApiOperation(value = "保存待发送待消息", notes = "保存待发送待消息")
+    @PostMapping("/waiting/confirm/message")
+    public Result<String> saveMessageWaitingConfirm(
+            @ApiParam(name = "TransactionMessageVo", value = "事务消息模型")
+            @Valid @RequestBody TransactionMessageVo transactionMessageVo
+    ) {
+        transactionMessageService.saveMessageWaitingConfirm(transactionMessageVo);
+        return Result.success();
+    }
 
+    @ApiOperation(value = "确定并发送待消息", notes = "确定并发送待消息")
+    @PostMapping("/confirm/sending/message/{id}")
+    public Result<String> confirmAndSendMessage(
+            @ApiParam(name = "id", value = "消息ID")
+            @PathVariable("id") String id
+    ) {
+        transactionMessageService.confirmAndSendMessage(id);
+        return Result.success();
+    }
+
+    @ApiOperation(value = "确定并发送待消息", notes = "确定并发送待消息")
+    @PostMapping("/saving/sending/message/{id}")
+    public Result<String> saveAndSendMessage(
+            @ApiParam(name = "TransactionMessageVo", value = "事务消息模型")
+            @Valid @RequestBody TransactionMessageVo transactionMessageVo
+    ) {
+        transactionMessageService.saveAndSendMessage(transactionMessageVo);
         return Result.success();
     }
 }

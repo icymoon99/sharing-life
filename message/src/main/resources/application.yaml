@@ -7,6 +7,6 @@ server:
   port: 18020
 
 mybatis:
-  type-aliases-package: com.rias.sharing.life.user.entity
+  type-aliases-package: com.rias.sharing.life.message.entity
 
 

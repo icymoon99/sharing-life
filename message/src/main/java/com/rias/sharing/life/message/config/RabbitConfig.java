@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitConfig {
     final static String QUEUE_PAY_ACCOUNT = "topic.pay.account";
-    final static String EXCHANGE_PAY_ACCOUNT = "exchange.pay.account";
+    final static String EXCHANGE_PAY_ACCOUNT = "9";
     final static String ROUTING_PAY_ACCOUNT = "routing.pay.account.#";
 
     @Bean

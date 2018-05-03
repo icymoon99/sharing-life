@@ -11,5 +11,11 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public interface TransactionMessageService {
-    boolean directSendMessage(final TransactionMessageVo message);
+    void directSendMessage(final TransactionMessageVo messageVo);
+
+    void saveMessageWaitingConfirm(final TransactionMessageVo messageVo);
+
+    void confirmAndSendMessage(String id);
+
+    void saveAndSendMessage(final TransactionMessageVo messageVo);
 }
