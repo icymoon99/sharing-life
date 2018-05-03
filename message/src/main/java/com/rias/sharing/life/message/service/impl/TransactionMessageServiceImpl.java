@@ -1,6 +1,6 @@
 package com.rias.sharing.life.message.service.impl;
 
-import com.rias.sharing.life.message.Vo.TransactionMessageVo;
+import com.rias.sharing.life.message.vo.TransactionMessageVo;
 import com.rias.sharing.life.message.service.TransactionMessageService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.AmqpTemplate;

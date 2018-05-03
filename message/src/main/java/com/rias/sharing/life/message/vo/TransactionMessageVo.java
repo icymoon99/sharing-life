@@ -1,4 +1,4 @@
-package com.rias.sharing.life.message.Vo;
+package com.rias.sharing.life.message.vo;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

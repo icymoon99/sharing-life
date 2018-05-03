@@ -1,6 +1,6 @@
 package com.rias.sharing.life.message.service;
 
-import com.rias.sharing.life.message.Vo.TransactionMessageVo;
+import com.rias.sharing.life.message.vo.TransactionMessageVo;
 import org.springframework.stereotype.Service;
 
 /**
