@@ -7,11 +7,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="eureka" />
+        <module name="message" />
         <module name="user" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="eureka" target="1.8" />
+      <module name="message" target="1.8" />
       <module name="sharing-life" target="1.8" />
       <module name="user" target="1.8" />
     </bytecodeTargetLevel>
