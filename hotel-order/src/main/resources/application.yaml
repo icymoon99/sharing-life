@@ -1,0 +1,11 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: hotel-order
+server:
+  port: 18110
+
+mybatis:
+  type-aliases-package: com.rias.sharing.life.hotel.order.entity
+

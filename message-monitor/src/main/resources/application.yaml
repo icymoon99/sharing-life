@@ -1,0 +1,18 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: message-monitor
+server:
+  port: 18030
+
+mybatis:
+  type-aliases-package: com.rias.sharing.life.message.monitor.entity
+
+pagehelper:
+  auto-dialect: true
+  close-conn: true
+
+message:
+  scheduler:
+    max-handle-num-per-page: 1000

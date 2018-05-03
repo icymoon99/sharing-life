@@ -7,13 +7,19 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="eureka" />
+        <module name="hotel-core" />
+        <module name="hotel-order" />
         <module name="message" />
+        <module name="message-monitor" />
         <module name="user" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="eureka" target="1.8" />
+      <module name="hotel-core" target="1.8" />
+      <module name="hotel-order" target="1.8" />
       <module name="message" target="1.8" />
+      <module name="message-monitor" target="1.8" />
       <module name="sharing-life" target="1.8" />
       <module name="user" target="1.8" />
     </bytecodeTargetLevel>

@@ -1,0 +1,12 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: hotel-core
+server:
+  port: 18120
+
+mybatis:
+  type-aliases-package: com.rias.sharing.life.user.entity
+
+
