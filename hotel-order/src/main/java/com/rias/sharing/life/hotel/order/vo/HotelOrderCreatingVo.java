@@ -51,6 +51,10 @@ public class HotelOrderCreatingVo implements Serializable {
     @NotNull
     private String endDate;
 
+    @ApiModelProperty(value="入住天数",example="3")
+    @NotNull
+    private String durationStay;
+
     @ApiModelProperty(value="入住人姓名",example="张三")
     @NotNull
     private String occupantName;
@@ -74,6 +78,7 @@ public class HotelOrderCreatingVo implements Serializable {
         order.setSkuBond(vo.getSkuBond());
         order.setStartDate(LocalDate.parse(vo.getStartDate()));
         order.setEndDate(LocalDate.parse(vo.getEndDate()));
+        order.setDurationStay(vo.getDurationStay());
         order.setOccupantName(vo.getOccupantName());
         order.setOccupantCard(vo.getOccupantCard());
         order.setOccupantPhone(vo.getOccupantPhone());
