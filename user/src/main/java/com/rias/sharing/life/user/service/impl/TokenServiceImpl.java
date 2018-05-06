@@ -6,6 +6,7 @@ import com.rias.sharing.life.user.exception.GlobalException;
 import com.rias.sharing.life.user.result.CodeMsg;
 import com.rias.sharing.life.user.service.TokenService;
 import com.rias.sharing.life.user.service.aliyun.AcsService;
+import com.rias.sharing.life.user.util.SnowFlakeUtil;
 import com.rias.sharing.life.user.util.StringUtil;
 import com.rias.sharing.life.user.vo.PhoneCodeVo;
 import lombok.extern.slf4j.Slf4j;
@@ -35,6 +36,8 @@ public class TokenServiceImpl implements TokenService {
     UserDao userDao;
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
+    @Autowired
+    private SnowFlakeUtil snowFlakeUtil;
 
     @Value("${user.default.nick-name}")
     String nickName;
@@ -75,6 +78,7 @@ public class TokenServiceImpl implements TokenService {
     private User createDefault(String phone) {
         User user = new User();
 
+        user.setId(snowFlakeUtil.creatId());
         user.setNickName(this.nickName);
         user.setPhone(phone);
         user.setSex(this.sex);

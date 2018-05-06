@@ -61,7 +61,7 @@ public class HotelOrderCreatingVo implements Serializable {
 
     @ApiModelProperty(value="入住人身份证",example="420104***********************")
     @NotNull
-    @Length(min = 13, max = 13)
+    @Length(min = 18, max = 18)
     private String occupantCard;
 
     @ApiModelProperty(value="入住人电话",example="13711111111")

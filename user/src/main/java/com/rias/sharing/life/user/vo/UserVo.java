@@ -17,7 +17,7 @@ import java.time.format.DateTimeFormatter;
 @Data
 public class UserVo {
     @ApiModelProperty(value="用户ID",example="420")
-    private Integer id;
+    private Long id;
 
     @ApiModelProperty(value="昵称",example="张三")
     private String nickName;

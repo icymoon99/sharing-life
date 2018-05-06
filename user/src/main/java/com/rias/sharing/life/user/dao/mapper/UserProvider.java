@@ -10,12 +10,14 @@ import org.apache.ibatis.jdbc.SQL;
  * @description: TODO
  */
 public class UserProvider {
+    final static String COL_ID = "id";
     final static String COL_NICK_NAME = "nick_name";
     final static String COL_PHONE = "phone";
     final static String COL_IMG_URL = "img_url";
     final static String COL_SEX = "sex";
     final static String COL_BIRTHDAY = "birthday";
 
+    final static String VAL_ID = "#{id}";
     final static String VAL_NICK_NAME = "#{nickName}";
     final static String VAL_PHONE = "#{phone}";
     final static String VAL_IMG_URL = "#{imgUrl}";
@@ -25,6 +27,9 @@ public class UserProvider {
     public String saveUser(User user) {
         return new SQL() {{
             INSERT_INTO("user");
+            if (user.getId() != null) {
+                VALUES(COL_ID, VAL_ID);
+            }
             if (user.getNickName() != null) {
                 VALUES(COL_NICK_NAME, VAL_NICK_NAME);
             }
