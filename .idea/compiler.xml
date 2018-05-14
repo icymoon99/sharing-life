@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="eureka" />
         <module name="hotel" />
+        <module name="hotel-gateway" />
         <module name="hotel-order" />
         <module name="message" />
         <module name="message-monitor" />
@@ -18,6 +19,7 @@
       <module name="eureka" target="1.8" />
       <module name="hotel" target="1.8" />
       <module name="hotel-core" target="1.8" />
+      <module name="hotel-gateway" target="1.8" />
       <module name="hotel-order" target="1.8" />
       <module name="message" target="1.8" />
       <module name="message-monitor" target="1.8" />

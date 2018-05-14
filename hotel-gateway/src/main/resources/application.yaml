@@ -1,0 +1,12 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: hotel-gateway
+server:
+  port: 18130
+
+mybatis:
+  type-aliases-package: com.rias.sharing.life.hotel.gateway.entity
+
+
