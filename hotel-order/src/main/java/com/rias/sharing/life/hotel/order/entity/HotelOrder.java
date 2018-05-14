@@ -15,7 +15,7 @@ public class HotelOrder {
     /**
      * id
      */
-    private String id;
+    private Long id;
     /**
      * 版本
      */
@@ -23,7 +23,7 @@ public class HotelOrder {
     /**
      * 创建人
      */
-    private String creator;
+    private Long creator;
     /**
      * 创建时间
      */
@@ -31,7 +31,7 @@ public class HotelOrder {
     /**
      * 修改人
      */
-    private String editor;
+    private Long editor;
     /**
      * 修改时间
      */
@@ -47,11 +47,11 @@ public class HotelOrder {
     /**
      * 用户id
      */
-    private String userId;
+    private Long userId;
     /**
      * 房间id
      */
-    private String skuId;
+    private Long skuId;
     /**
      * 房间名称
      */
@@ -79,7 +79,7 @@ public class HotelOrder {
     /**
      * 商户id
      */
-    private String merchantId;
+    private Long merchantId;
     /**
      * 入住人姓名
      */
@@ -95,7 +95,7 @@ public class HotelOrder {
     /**
      * 入住天数
      */
-    private String durationStay;
+    private String durationsDay;
     /**
      * 订单状态
      */

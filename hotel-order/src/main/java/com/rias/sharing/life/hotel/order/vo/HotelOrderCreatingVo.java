@@ -7,7 +7,6 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
-import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -23,17 +22,17 @@ import java.time.LocalDate;
 public class HotelOrderCreatingVo implements Serializable {
     private static final long serialVersionUID = -7735766356188951273L;
 
-    @ApiModelProperty(value="订单id",example="87d9fe4238f74d84be15d62984fdfe65")
+    @ApiModelProperty(value="订单id",example="1")
     @NotNull
-    private String id;
+    private Long id;
 
-    @ApiModelProperty(value="用户id",example="87d9fe4238f74d84be15d62984fdfe65")
+    @ApiModelProperty(value="用户id",example="2")
     @NotNull
-    private String userId;
+    private Long userId;
 
-    @ApiModelProperty(value="房间id",example="87d9fe4238f74d84be15d62984fdfe66")
+    @ApiModelProperty(value="房间id",example="3")
     @NotNull
-    private String skuId;
+    private Long skuId;
 
     @ApiModelProperty(value="房间总价",example="5096")
     @NotNull
@@ -53,13 +52,13 @@ public class HotelOrderCreatingVo implements Serializable {
 
     @ApiModelProperty(value="入住天数",example="3")
     @NotNull
-    private String durationStay;
+    private String durationsDay;
 
     @ApiModelProperty(value="入住人姓名",example="张三")
     @NotNull
     private String occupantName;
 
-    @ApiModelProperty(value="入住人身份证",example="420104***********************")
+    @ApiModelProperty(value="入住人身份证",example="420111111111111111")
     @NotNull
     @Length(min = 18, max = 18)
     private String occupantCard;
@@ -78,7 +77,7 @@ public class HotelOrderCreatingVo implements Serializable {
         order.setSkuBond(vo.getSkuBond());
         order.setStartDate(LocalDate.parse(vo.getStartDate()));
         order.setEndDate(LocalDate.parse(vo.getEndDate()));
-        order.setDurationStay(vo.getDurationStay());
+        order.setDurationsDay(vo.getDurationsDay());
         order.setOccupantName(vo.getOccupantName());
         order.setOccupantCard(vo.getOccupantCard());
         order.setOccupantPhone(vo.getOccupantPhone());

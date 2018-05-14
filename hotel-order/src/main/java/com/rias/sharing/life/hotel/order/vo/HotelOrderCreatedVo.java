@@ -19,17 +19,17 @@ public class HotelOrderCreatedVo {
     /**
      * 房间id
      */
-    private String skuId;
+    private Long skuId;
 
     /**
      * 订单id
      */
-    private String OrderId;
+    private Long OrderId;
 
     /**
      * 商户id
      */
-    private  String merchantId;
+    private  Long merchantId;
 
     public static HotelOrderCreatedVo make(HotelOrder order) {
         HotelOrderCreatedVo vo = new HotelOrderCreatedVo();

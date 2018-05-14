@@ -54,6 +54,6 @@ public class HotelorderServiceImpl implements HotelorderService {
 
         hotelOrderDao.createHotelOrder(order);
 
-        return null;
+        return HotelOrderCreatedVo.make(order);
     }
 }

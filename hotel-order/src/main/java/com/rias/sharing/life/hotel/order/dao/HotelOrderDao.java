@@ -19,10 +19,10 @@ public class HotelOrderDao {
     HotelOrderMapper mapper;
 
     public void createHotelOrder(HotelOrder order) {
-        mapper.createHotelOrder(order);
+        mapper.createOrder(order);
     }
 
-    public HotelOrder getOrderById(String id) {
+    public HotelOrder getOrderById(Long id) {
         return mapper.getOrderById(id);
     }
 }

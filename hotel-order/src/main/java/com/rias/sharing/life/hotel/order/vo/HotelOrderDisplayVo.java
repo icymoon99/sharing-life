@@ -11,14 +11,14 @@ import java.io.Serializable;
 public class HotelOrderDisplayVo implements Serializable {
     private static final long serialVersionUID = -6294998792341256146L;
 
-    @ApiModelProperty(value="订单id",example="87d9fe4238f74d84be15d62984fdfe65")
-    private String id;
+    @ApiModelProperty(value="订单id",example="1")
+    private Long id;
 
-    @ApiModelProperty(value="用户id",example="87d9fe4238f74d84be15d62984fdfe65")
-    private String userId;
+    @ApiModelProperty(value="用户id",example="2")
+    private Long userId;
 
-    @ApiModelProperty(value="房间id",example="87d9fe4238f74d84be15d62984fdfe66")
-    private String skuId;
+    @ApiModelProperty(value="房间id",example="3")
+    private Long skuId;
 
     @ApiModelProperty(value="房间总价",example="5096")
     private Integer skuPrice;
@@ -35,7 +35,7 @@ public class HotelOrderDisplayVo implements Serializable {
     @ApiModelProperty(value="入住人姓名",example="张三")
     private String occupantName;
 
-    @ApiModelProperty(value="入住人身份证",example="420104***********************")
+    @ApiModelProperty(value="入住人身份证",example="420111111111111111")
     private String occupantCard;
 
     @ApiModelProperty(value="入住人电话",example="13711111111")
