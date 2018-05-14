@@ -3,13 +3,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.rias.sharing.life.hotel.core</groupId>
-    <artifactId>hotel-core</artifactId>
+    <groupId>com.rias.sharing.life.hotel</groupId>
+    <artifactId>hotel</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>hotel-core</name>
-    <description>project for hotel core</description>
+    <name>hotel</name>
+    <description>project for hotel</description>
 
     <parent>
         <groupId>com.rias.sharing.life</groupId>
