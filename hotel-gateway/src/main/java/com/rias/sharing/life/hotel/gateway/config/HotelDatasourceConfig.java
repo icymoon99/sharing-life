@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 import javax.sql.DataSource;
 
@@ -18,13 +19,14 @@ import javax.sql.DataSource;
  * @description: TODO
  */
 @Configuration
-@MapperScan(basePackages = "com.rias.sharing.life.hotel.gateway.dao.mapper.hotel", sqlSessionFactoryRef = "sqlSessionFactory")
+@MapperScan(basePackages = "com.rias.sharing.life.hotel.gateway.dao.mapper.hotel", sqlSessionFactoryRef = "hotelSqlSessionFactory")
 public class HotelDatasourceConfig {
     @Autowired
     @Qualifier("hotelDataSource")
     private DataSource ds;
 
-    @Bean
+    @Primary
+    @Bean(name = "hotelSqlSessionFactory")
     public SqlSessionFactory sqlSessionFactory() throws Exception {
         SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
         factoryBean.setDataSource(ds);
@@ -35,7 +37,8 @@ public class HotelDatasourceConfig {
 
     }
 
-    @Bean
+    @Primary
+    @Bean(name = "hotelSqlSessionTemplate")
     public SqlSessionTemplate sqlSessionTemplate() throws Exception {
         SqlSessionTemplate template = new SqlSessionTemplate(sqlSessionFactory()); // 使用上面配置的Factory
         return template;

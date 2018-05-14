@@ -1,4 +1,7 @@
 spring:
+  jta:
+    log-dir: classpath:tx-logs
+    transaction-manager-id: txManager
   # MySQL
   datasource:
     type: com.alibaba.druid.pool.xa.DruidXADataSource

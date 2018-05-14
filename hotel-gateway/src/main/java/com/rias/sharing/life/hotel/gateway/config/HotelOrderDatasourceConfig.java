@@ -18,13 +18,13 @@ import javax.sql.DataSource;
  * @description: TODO
  */
 @Configuration
-@MapperScan(basePackages = "com.rias.sharing.life.hotel.gateway.dao.mapper.order", sqlSessionFactoryRef = "sqlSessionFactory")
+@MapperScan(basePackages = "com.rias.sharing.life.hotel.gateway.dao.mapper.order", sqlSessionFactoryRef = "orderSqlSessionFactory")
 public class HotelOrderDatasourceConfig {
     @Autowired
     @Qualifier("hotelOrderDataSource")
     private DataSource ds;
 
-    @Bean
+    @Bean(name = "orderSqlSessionFactory")
     public SqlSessionFactory sqlSessionFactory() throws Exception {
         SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
         factoryBean.setDataSource(ds);
@@ -35,7 +35,7 @@ public class HotelOrderDatasourceConfig {
 
     }
 
-    @Bean
+    @Bean(name = "orderSqlSessionTemplate")
     public SqlSessionTemplate sqlSessionTemplate() throws Exception {
         SqlSessionTemplate template = new SqlSessionTemplate(sqlSessionFactory()); // 使用上面配置的Factory
         return template;
