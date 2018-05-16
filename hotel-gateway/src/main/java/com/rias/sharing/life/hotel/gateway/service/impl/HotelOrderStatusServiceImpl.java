@@ -6,6 +6,7 @@ import com.rias.sharing.life.hotel.gateway.dao.HotelOrderDao;
 import com.rias.sharing.life.hotel.gateway.dao.HotelSkuDailyStatusDao;
 import com.rias.sharing.life.hotel.gateway.entity.HotelOrder;
 import com.rias.sharing.life.hotel.gateway.service.HotelOrdefStatusService;
+import com.rias.sharing.life.hotel.gateway.util.DateUtil;
 import com.rias.sharing.life.hotel.gateway.vo.HotelOrderStatusVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,11 +43,7 @@ public class HotelOrderStatusServiceImpl implements HotelOrdefStatusService {
 
         // 生成修改房态所需的数据
         HotelOrder order = hotelOrderDao.getById(statusVo.getId());
-        List<LocalDate> dates = new ArrayList<>();
-        for (LocalDate date = order.getStartDate(); date.isBefore(order.getEndDate()); date = date.plusDays(1)) {
-            LocalDate temp = LocalDate.of(date.getYear(), date.getMonth(), date.getDayOfMonth());
-            dates.add(temp);
-        }
+        List<LocalDate> dates = DateUtil.getDates(order.getStartDate(), order.getEndDate());
 
         switch (statusEnum) {
             case CHECK_OUT:

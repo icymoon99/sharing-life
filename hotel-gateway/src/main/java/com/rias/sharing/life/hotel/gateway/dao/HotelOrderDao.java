@@ -18,6 +18,14 @@ public class HotelOrderDao {
     @Autowired
     HotelOrderMapper mapper;
 
+    public void createHotelOrder(HotelOrder order) {
+        mapper.createOrder(order);
+    }
+
+    public HotelOrder getOrderById(Long id) {
+        return mapper.getOrderById(id);
+    }
+
     public void modifyOrderStatusById(long id, int status) {
         mapper.modifyOrderStatusById(id, status);
     }

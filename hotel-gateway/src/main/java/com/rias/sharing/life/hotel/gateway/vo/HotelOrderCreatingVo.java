@@ -1,7 +1,7 @@
-package com.rias.sharing.life.hotel.order.vo;
+package com.rias.sharing.life.hotel.gateway.vo;
 
-import com.rias.sharing.life.hotel.order.entity.HotelOrder;
-import com.rias.sharing.life.hotel.order.validator.IsMobile;
+import com.rias.sharing.life.hotel.gateway.entity.HotelOrder;
+import com.rias.sharing.life.hotel.gateway.validator.IsMobile;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

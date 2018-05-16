@@ -7,7 +7,6 @@ import com.rias.sharing.life.user.result.CodeMsg;
 import com.rias.sharing.life.user.service.TokenService;
 import com.rias.sharing.life.user.service.aliyun.AcsService;
 import com.rias.sharing.life.user.util.SnowFlakeUtil;
-import com.rias.sharing.life.user.util.StringUtil;
 import com.rias.sharing.life.user.vo.PhoneCodeVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

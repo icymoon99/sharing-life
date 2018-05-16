@@ -1,10 +1,9 @@
-package com.rias.sharing.life.hotel.order.controller;
+package com.rias.sharing.life.hotel.gateway.controller;
 
-import com.rias.sharing.life.hotel.order.result.CodeMsg;
-import com.rias.sharing.life.hotel.order.result.Result;
-import com.rias.sharing.life.hotel.order.service.HotelorderService;
-import com.rias.sharing.life.hotel.order.vo.HotelOrderCreatedVo;
-import com.rias.sharing.life.hotel.order.vo.HotelOrderCreatingVo;
+import com.rias.sharing.life.hotel.gateway.result.Result;
+import com.rias.sharing.life.hotel.gateway.service.HotelorderService;
+import com.rias.sharing.life.hotel.gateway.vo.HotelOrderCreatedVo;
+import com.rias.sharing.life.hotel.gateway.vo.HotelOrderCreatingVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;

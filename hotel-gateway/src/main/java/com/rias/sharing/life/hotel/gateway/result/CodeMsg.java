@@ -22,7 +22,8 @@ public class CodeMsg {
     /**
      * 酒店模块
      */
-	public static CodeMsg NO_REGION_BY_ID = new CodeMsg(18130210, "通过ID查询地域不存在");
+	public static CodeMsg REPEAT_ORDER_ID = new CodeMsg(18130001, "数据库中已存在订单ID");
+	public static CodeMsg NO_REGION_BY_ID = new CodeMsg(18130002, "通过ID查询地域不存在");
 	
 	private CodeMsg( ) {
 	}

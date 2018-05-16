@@ -15,7 +15,7 @@ public interface HotelOrderMapper {
     @Insert("INSERT INTO hotel_order " +
             "(id,version,creator,create_time,editor,edit_time,is_delete,remark,user_id,sku_id,sku_price," +
             "sku_bond,start_date,end_date,merchant_id,occupant_name,occupant_id_card,occupant_phone," +
-            "duration_stay,status,expire_time) " +
+            "durations_day,status,expire_time) " +
             "VALUES " +
             "(#{id},#{version},#{creator},#{createTime},#{editor},#{editTime},#{isDelete} ,#{remark}," +
             "#{userId},#{skuId},#{skuPrice},#{skuBond},#{startDate},#{endDate},#{merchantId},#{occupantName}," +
@@ -37,7 +37,7 @@ public interface HotelOrderMapper {
             @Result(property = "occupantName", column = "occupant_name"),
             @Result(property = "occupantCard", column = "occupant_id_card"),
             @Result(property = "occupantPhone", column = "occupant_phone"),
-            @Result(property = "duration_stay", column = "durationsDay"),
+            @Result(property = "durations_day", column = "durationsDay"),
             @Result(property = "expireTime", column = "expire_time")
     })
     HotelOrder getOrderById(Long id);

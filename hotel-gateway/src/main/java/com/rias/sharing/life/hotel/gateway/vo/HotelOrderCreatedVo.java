@@ -1,6 +1,6 @@
-package com.rias.sharing.life.hotel.order.vo;
+package com.rias.sharing.life.hotel.gateway.vo;
 
-import com.rias.sharing.life.hotel.order.entity.HotelOrder;
+import com.rias.sharing.life.hotel.gateway.entity.HotelOrder;
 import lombok.Data;
 
 /**
@@ -12,7 +12,7 @@ import lombok.Data;
 public class HotelOrderCreatedVo {
 
     /**
-     * 状态码
+     * 状态
      */
     private Integer status;
 

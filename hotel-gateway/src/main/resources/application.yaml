@@ -9,4 +9,14 @@ server:
 mybatis:
   type-aliases-package: com.rias.sharing.life.hotel.gateway.entity
 
+snow-flake:
+  date-center:
+    id: 1
+  machine:
+    id: 1
+
+hotel:
+  order:
+    expire-time: 15
+
 

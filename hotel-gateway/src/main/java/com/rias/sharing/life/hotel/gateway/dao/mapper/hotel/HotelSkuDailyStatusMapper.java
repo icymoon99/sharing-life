@@ -17,9 +17,9 @@ import java.util.List;
  */
 public interface HotelSkuDailyStatusMapper {
     @Insert("<script>" +
-            "INSERT INTO hotel_sku_daily_status(sku_id,date,status) VALUES " +
+            "INSERT INTO hotel_sku_daily_status(id,sku_id,date,status) VALUES " +
             "<foreach collection='list' item='item'  separator=','>" +
-            "(#{item.skuId},#{item.specDate},#{item.status})" +
+            "(#{item.id},#{item.skuId},#{item.date},#{item.status})" +
             "</foreach>" +
             "</script>")
     void createDailyStatus(List<HotelSkuDailyStatus> list);
