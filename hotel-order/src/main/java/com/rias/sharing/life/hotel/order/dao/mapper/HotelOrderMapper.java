@@ -15,7 +15,7 @@ public interface HotelOrderMapper {
     @Insert("INSERT INTO hotel_order " +
             "(id,version,creator,create_time,editor,edit_time,is_delete,remark,user_id,sku_id,sku_price," +
             "sku_bond,start_date,end_date,merchant_id,occupant_name,occupant_id_card,occupant_phone," +
-            "duration_stay,order_status,expire_time) " +
+            "duration_stay,status,expire_time) " +
             "VALUES " +
             "(#{id},#{version},#{creator},#{createTime},#{editor},#{editTime},#{isDelete} ,#{remark}," +
             "#{userId},#{skuId},#{skuPrice},#{skuBond},#{startDate},#{endDate},#{merchantId},#{occupantName}," +
@@ -24,7 +24,7 @@ public interface HotelOrderMapper {
 
     @Select("SELECT id," +
             "remark,user_id,sku_id,sku_price,sku_bond,start_date,end_date,merchant_id," +
-            "occupant_name,occupant_id_card,occupant_phone,order_status,expire_time " +
+            "occupant_name,occupant_id_card,occupant_phone,status,expire_time " +
             "from hotel_order where id = #{id} and is_delete = false")
     @Results({
             @Result(property = "userId", column = "user_id"),
@@ -38,14 +38,13 @@ public interface HotelOrderMapper {
             @Result(property = "occupantCard", column = "occupant_id_card"),
             @Result(property = "occupantPhone", column = "occupant_phone"),
             @Result(property = "duration_stay", column = "durationsDay"),
-            @Result(property = "status", column = "order_status"),
             @Result(property = "expireTime", column = "expire_time")
     })
     HotelOrder getOrderById(Long id);
 
     @Select("<script> " +
             "SELECT a.id,a.remark,a.user_id,a.sku_id,a.sku_price,a.sku_bond,a.start_date,a.end_date,a.merchant_id," +
-            "a.occupant_name,a.occupant_id_card,a.occupant_phone,a.order_status,a.expire_time,b.sku_name,b.address " +
+            "a.occupant_name,a.occupant_id_card,a.occupant_phone,a.status,a.expire_time,b.sku_name,b.address " +
             "from hotel_order a LEFT JOIN hotel_sku b on a.sku_id = b.id " +
             "where a.user_id = #{userId} and a.is_delete = false  " +
             "</script>")
@@ -60,7 +59,6 @@ public interface HotelOrderMapper {
             @Result(property = "occupantName", column = "occupant_name"),
             @Result(property = "occupantCard", column = "occupant_id_card"),
             @Result(property = "occupantPhone", column = "occupant_phone"),
-            @Result(property = "status", column = "order_status"),
             @Result(property = "skuName", column = "sku_name"),
             @Result(property = "expireTime", column = "expire_time")
     })
@@ -71,11 +69,11 @@ public interface HotelOrderMapper {
      * @author:郑鹏宇
      * @date:2018/4/16
      */
-    @Update("update hotel_order set order_status = #{status} where id =#{id}")
+    @Update("update hotel_order set status = #{status} where id =#{id}")
     int updateOrderStatusById(@Param(value = "id") String id, @Param(value = "status") Integer status);
 
 
-    @Select("SELECT COUNT(id) FROM hotel_order where user_id = #{userId} AND order_status = #{status}")
+    @Select("SELECT COUNT(id) FROM hotel_order where user_id = #{userId} AND status = #{status}")
     int countOrderByStatus(@Param(value = "userId") String userId, @Param(value = "status") Integer status);
 }
 

@@ -53,14 +53,6 @@ public class HotelOrder {
      */
     private Long skuId;
     /**
-     * 房间名称
-     */
-    private String skuName;
-    /**
-     * 房间地址
-     */
-    private String address;
-    /**
      * 房间总价
      */
     private Integer skuPrice;

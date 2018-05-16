@@ -6,7 +6,7 @@ import lombok.Data;
 
 import java.io.Serializable;
 
-@ApiModel(value="订单模型",description="订单模型DTO")
+@ApiModel(value="订单模型",description="订单模型Vo")
 @Data
 public class HotelOrderDisplayVo implements Serializable {
     private static final long serialVersionUID = -6294998792341256146L;
