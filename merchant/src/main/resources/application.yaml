@@ -1,0 +1,29 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: merchant
+server:
+  port: 18040
+
+mybatis:
+  type-aliases-package: com.rias.sharing.life.merchant.entity
+
+aliyun:
+  asc:
+    access-key-id: LTAIRyUPzUHWE3aQ
+    access-key-secret: 6AItvovD7Pz8cBeFTJdufKE0A89abt
+
+merchant:
+  hr:
+    token:
+      time-day: 7
+    msgcode:
+      time-sec: 60
+
+snow-flake:
+  date-center:
+    id: 1
+  machine:
+    id: 1
+

@@ -9,5 +9,7 @@ import com.rias.sharing.life.hotel.gateway.vo.HotelOrderStatusVo;
  * @description: TODO
  */
 public interface HotelOrdefStatusService {
-    void ModifyOrderStatus(HotelOrderStatusVo stautsVo);
+    void modifyOrderStatus(HotelOrderStatusVo stautsVo);
+
+    void handleExpireOrder();
 }

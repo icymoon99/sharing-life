@@ -6,21 +6,25 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="common" />
         <module name="eureka" />
         <module name="hotel" />
         <module name="hotel-gateway" />
         <module name="hotel-order" />
+        <module name="merchant" />
         <module name="message" />
         <module name="message-monitor" />
         <module name="user" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="common" target="8" />
       <module name="eureka" target="1.8" />
       <module name="hotel" target="1.8" />
       <module name="hotel-core" target="1.8" />
       <module name="hotel-gateway" target="1.8" />
       <module name="hotel-order" target="1.8" />
+      <module name="merchant" target="1.8" />
       <module name="message" target="1.8" />
       <module name="message-monitor" target="1.8" />
       <module name="sharing-life" target="1.8" />

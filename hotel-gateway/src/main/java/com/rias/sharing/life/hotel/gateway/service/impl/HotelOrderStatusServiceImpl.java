@@ -14,8 +14,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @name: HotelOrderStatusServiceImpl
@@ -33,7 +35,7 @@ public class HotelOrderStatusServiceImpl implements HotelOrdefStatusService {
 
     @Override
     @Transactional(transactionManager = "xatx", rollbackFor = { java.lang.RuntimeException.class })
-    public void ModifyOrderStatus(HotelOrderStatusVo statusVo) {
+    public void modifyOrderStatus(HotelOrderStatusVo statusVo) {
 
         // 修改订单表状态
         hotelOrderDao.modifyOrderStatusById(statusVo.getId(), statusVo.getStatus());
@@ -50,11 +52,35 @@ public class HotelOrderStatusServiceImpl implements HotelOrdefStatusService {
                 hotelSkuDailyStatusDao.modifyDailyStatus(order.getSkuId(), HotelRoomStatusEnum.DIRTY.getIndex(), dates);
                 break;
             case EXPRIED:
-                hotelSkuDailyStatusDao.deleteDailyStatus(order.getSkuId(), dates);
+                hotelSkuDailyStatusDao.deleteOrderDailyStatus(order.getSkuId(), dates);
                 break;
             case CANCEL:
-                hotelSkuDailyStatusDao.deleteDailyStatus(order.getSkuId(), dates);
+                hotelSkuDailyStatusDao.deleteOrderDailyStatus(order.getSkuId(), dates);
                 break;
         }
+    }
+
+    @Override
+    @Transactional(transactionManager = "xatx", rollbackFor = { java.lang.RuntimeException.class })
+    public void handleExpireOrder() {
+        List<HotelOrder> orders = hotelOrderDao.getExpriedOrder(
+                HotelOrderStatusEnum.UNPAID.getIndex(), LocalDateTime.now());
+
+        //  更新订单状态
+        List<Long> orderIds = orders.stream()
+                .map(order -> order.getId())
+                .collect(Collectors.toList());
+        hotelOrderDao.modifyOrderStatusByIds(orderIds, HotelOrderStatusEnum.EXPRIED.getIndex());
+
+        // 更新房态
+        List<Long> skuIds = orders.stream()
+                .map(order -> order.getSkuId())
+                .collect(Collectors.toList());
+        List<LocalDate> dates = orders.stream()
+                .map(order -> DateUtil.getDates(order.getStartDate(), order.getEndDate()))
+                .flatMap(orderDates -> orderDates.stream())
+                .distinct()
+                .collect(Collectors.toList());
+        hotelSkuDailyStatusDao.deleteOrdersDailyStatus(skuIds, dates);
     }
 }

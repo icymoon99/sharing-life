@@ -6,8 +6,6 @@ import com.rias.sharing.life.hotel.order.entity.HotelOrder;
 import com.rias.sharing.life.hotel.order.exception.GlobalException;
 import com.rias.sharing.life.hotel.order.result.CodeMsg;
 import com.rias.sharing.life.hotel.order.service.HotelorderService;
-import com.rias.sharing.life.hotel.order.vo.HotelOrderCreatedVo;
-import com.rias.sharing.life.hotel.order.vo.HotelOrderCreatingVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -49,7 +47,7 @@ public class HotelorderServiceImpl implements HotelorderService {
         order.setStatus(OrderStatusEnum.UNPAID.getIndex());
         order.setCreator(vo.getUserId());
         order.setEditor(vo.getUserId());
-        //order.setMerchantId(skuSearchQueryDao.getMerchantById(dto.getSkuId()));
+        //order.setMerchantId(skuSearchQueryDao.getMerchantById(vo.getSkuId()));
         order.setExpireTime(LocalDateTime.now().plusMinutes(orderExpireTime));
 
         hotelOrderDao.createHotelOrder(order);

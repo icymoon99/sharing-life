@@ -31,7 +31,7 @@ public class HotelOrderStatusController {
     public Result<String> ModifyOrderStatus(
             @ApiParam(name = "hotelOrderCreatingVo", value = "订单模型")
             @Valid @RequestBody() HotelOrderStatusVo statusVo) {
-        hotelOrdefStatusService.ModifyOrderStatus(statusVo);
+        hotelOrdefStatusService.modifyOrderStatus(statusVo);
 
         return Result.success();
     }

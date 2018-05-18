@@ -6,6 +6,9 @@
     <groupId>com.rias.sharing.life</groupId>
     <artifactId>sharing-life</artifactId>
     <version>1.0.0-SNAPSHOT</version>
+    <modules>
+        <module>common</module>
+    </modules>
     <packaging>pom</packaging>
 
     <name>sharing-life</name>

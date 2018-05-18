@@ -26,8 +26,12 @@ public class HotelSkuDailyStatusDao {
         mapper.createDailyStatus(statuses);
     }
 
-    public void deleteDailyStatus(Long skuId, List<LocalDate> dates) {
-        mapper.deleteDailyStatus(skuId, dates);
+    public void deleteOrderDailyStatus(Long skuId, List<LocalDate> dates) {
+        mapper.deleteOrderDailyStatus(skuId, dates);
+    }
+
+    public void deleteOrdersDailyStatus(List<Long> skuIds, List<LocalDate> dates) {
+        mapper.deleteOrdersDailyStatus(skuIds, dates);
     }
 
     public void modifyDailyStatus(Long skuId, Integer status, List<LocalDate> dates) {

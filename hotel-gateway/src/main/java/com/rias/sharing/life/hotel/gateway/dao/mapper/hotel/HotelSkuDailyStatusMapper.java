@@ -30,7 +30,19 @@ public interface HotelSkuDailyStatusMapper {
             "#{item}" +
             "</foreach>" +
             "</script>")
-    void deleteDailyStatus(@Param(value = "skuId") Long skuId, @Param(value = "list") List<LocalDate> list);
+    void deleteOrderDailyStatus(@Param(value = "skuId") Long skuId, @Param(value = "list") List<LocalDate> list);
+
+    @Delete("<script> " +
+            "DELETE FROM hotel_sku_daily_status WHERE sku_id IN " +
+            "<foreach collection='skuIds' item='skuId' open='(' separator=',' close=')'>" +
+            "#{skuId}" +
+            "</foreach>" +
+            " AND date IN " +
+            "<foreach collection='dates' item='date' open='(' separator=',' close=')'>" +
+            "#{date}" +
+            "</foreach>" +
+            "</script>")
+    void deleteOrdersDailyStatus(@Param(value = "skuIds") List<Long> skuIds, @Param(value = "dates") List<LocalDate> dates);
 
     @Update("<script> " +
             "update hotel_sku_daily_status set status = #{status} where sku_id = #{skuId} and date in" +

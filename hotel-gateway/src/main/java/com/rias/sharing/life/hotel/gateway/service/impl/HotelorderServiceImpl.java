@@ -53,7 +53,7 @@ public class HotelorderServiceImpl implements HotelorderService {
     @Transactional(transactionManager = "xatx", rollbackFor = { java.lang.RuntimeException.class })
     public HotelOrderCreatedVo creatHotelOrder(HotelOrderCreatingVo vo) {
         //幂等性判断
-        HotelOrder order = hotelOrderDao.getOrderById(vo.getId());
+        HotelOrder order = hotelOrderDao.getById(vo.getId());
         if (Optional.ofNullable(order).isPresent()) {
             throw new GlobalException(CodeMsg.REPEAT_ORDER_ID);
         }
@@ -63,7 +63,7 @@ public class HotelorderServiceImpl implements HotelorderService {
         order.setStatus(HotelOrderStatusEnum.UNPAID.getIndex());
         order.setCreator(vo.getUserId());
         order.setEditor(vo.getUserId());
-        //order.setMerchantId(skuSearchQueryDao.getMerchantById(dto.getSkuId()));
+        //order.setMerchantId(skuSearchQueryDao.getMerchantById(vo.getSkuId()));
         order.setExpireTime(LocalDateTime.now().plusMinutes(orderExpireTime));
 
         hotelOrderDao.createHotelOrder(order);
