@@ -20,7 +20,7 @@ public class UserServiceImpl implements UserService {
     UserDao userDao;
 
     @Override
-    public User getUserById(int id) {
+    public User getUserById(Long id) {
         User user = userDao.UsergetUserById(id);
         log.debug(user.toString());
 

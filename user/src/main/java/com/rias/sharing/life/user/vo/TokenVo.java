@@ -2,6 +2,7 @@ package com.rias.sharing.life.user.vo;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
@@ -12,15 +13,11 @@ import lombok.Data;
  */
 @ApiModel(value="获取Token前台模型",description="获取Token前台模型")
 @Data
+@AllArgsConstructor
 public class TokenVo {
     @ApiModelProperty(value="用户ID",example="420")
-    private Integer id;
+    private Long id;
 
-    @ApiModelProperty(value="密匙taken",example="879cbd5001d9497fb7bfed660f98d7ce")
+    @ApiModelProperty(value="密匙taken",example="123456")
     private String taken;
-
-    public TokenVo(Integer id, String taken) {
-        this.id = id;
-        this.taken = taken;
-    }
 }

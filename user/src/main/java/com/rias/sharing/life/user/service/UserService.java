@@ -9,5 +9,5 @@ import com.rias.sharing.life.user.entity.User;
  * @description: 用户服务接口
  */
 public interface UserService {
-    User getUserById(int id);
+    User getUserById(Long id);
 }

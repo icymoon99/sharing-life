@@ -1,7 +1,7 @@
 package com.rias.sharing.life.user.controller;
 
+import com.rias.sharing.life.common.result.Result;
 import com.rias.sharing.life.user.entity.User;
-import com.rias.sharing.life.user.result.Result;
 import com.rias.sharing.life.user.service.UserService;
 import com.rias.sharing.life.user.vo.UserVo;
 import io.swagger.annotations.Api;
@@ -33,7 +33,7 @@ public class UserController {
     @ApiOperation(value="根据id获取用户信息", notes="根据id获取用户信息")
     @GetMapping("/{id}")
     public Result<UserVo> getUserById(
-            @ApiParam(name="id",value="用户ID")@PathVariable("id") @NotNull  Integer id) {
+            @ApiParam(name="id",value="用户ID")@PathVariable("id") @NotNull  Long id) {
         User user = userService.getUserById(id);
 
         return Result.success(UserVo.make(user));

@@ -43,10 +43,6 @@ public class TokenController {
 
             HrVo vo = tokenService.checkPhoneStatus(phoneCodeVo);
 
-            if (!Optional.ofNullable(vo).isPresent()) {
-                return Result.error(CodeMsg.NO_HR_BY_ID);
-            }
-
             return Result.success(vo);
     }
 
@@ -63,10 +59,6 @@ public class TokenController {
 
         TakenVo vo = tokenService.createToken(hrId);
 
-        if (!Optional.ofNullable(vo).isPresent()) {
-            return Result.error(CodeMsg.NO_HR_BY_ID);
-        }
-
         return Result.success(vo);
     }
 
@@ -77,10 +69,6 @@ public class TokenController {
             @NotNull @RequestParam(name = "id") Long hrId) {
 
         TakenVo vo = tokenService.refreshToken(hrId);
-
-        if (!Optional.ofNullable(vo).isPresent()) {
-            return Result.error(CodeMsg.AUDIT_NOT_PASS);
-        }
 
         return Result.success(vo);
     }

@@ -12,7 +12,7 @@ import com.rias.sharing.life.user.vo.PhoneCodeVo;
 public interface TokenService {
     User checkPhoneStatus(PhoneCodeVo phoneCodeVo);
 
-    String createTokenByUserId(int userId);
+    String createTokenByUserId(long userId);
 
-    String refreshTokenByUserId(int userId);
+    String refreshTokenByUserId(long userId);
 }

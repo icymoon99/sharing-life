@@ -22,7 +22,7 @@ public class UserDao {
         return mapper.getUserByPhone(phone);
     }
 
-    public User UsergetUserById (int id) {
+    public User UsergetUserById (long id) {
         return mapper.getUserById(id);
     }
 

@@ -21,7 +21,7 @@ public interface UserMapper {
             @Result(column = "nick_name", property = "nickName"),
             @Result(column = "img_url", property = "imgUrl")
     })
-    User getUserById (int id);
+    User getUserById (long id);
 
     @InsertProvider(type = UserProvider.class,method = "saveUser")
     void saveUser(User user);

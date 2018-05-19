@@ -1,5 +1,7 @@
 package com.rias.sharing.life.merchant.service.impl;
 
+import com.rias.sharing.life.common.exception.GlobalException;
+import com.rias.sharing.life.common.result.CodeMsg;
 import com.rias.sharing.life.common.util.SnowFlakeUtil;
 import com.rias.sharing.life.common.util.StringUtil;
 import com.rias.sharing.life.merchant.dao.HrDao;
@@ -51,7 +53,7 @@ public class TokenServiceImpl implements TokenService {
     public HrVo checkPhoneStatus(PhoneCodeVo query) {
         Hr hr = jztHrDao.getByPhone(query.getPhone());
         if (!Optional.ofNullable(hr).isPresent()) {
-            return null;
+            throw new GlobalException(CodeMsg.NO_HR_BY_ID);
         }
 
         HrVo vo = HrVo.make(hr);
@@ -65,7 +67,7 @@ public class TokenServiceImpl implements TokenService {
     public TakenVo createToken(Long id) {
         Hr hr = jztHrDao.getById(id);
         if (!Optional.ofNullable(hr).isPresent()) {
-            return null;
+            throw new GlobalException(CodeMsg.NO_HR_BY_ID);
         }
 
         TakenVo takenVo =new TakenVo();
@@ -85,7 +87,7 @@ public class TokenServiceImpl implements TokenService {
 
         // 不存在token
         if (false == hasToken) {
-            return null;
+            throw new GlobalException(CodeMsg.TOKEN_NOT_EXSIT_BY_ID);
         }
 
         // TODO  查询用户关联的商户已经审核通过

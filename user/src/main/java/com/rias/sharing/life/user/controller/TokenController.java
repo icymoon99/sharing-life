@@ -1,7 +1,7 @@
 package com.rias.sharing.life.user.controller;
 
+import com.rias.sharing.life.common.result.Result;
 import com.rias.sharing.life.user.entity.User;
-import com.rias.sharing.life.user.result.Result;
 import com.rias.sharing.life.user.service.TokenService;
 import com.rias.sharing.life.user.vo.PhoneCodeVo;
 import com.rias.sharing.life.user.vo.TokenVo;
@@ -49,7 +49,7 @@ public class TokenController {
     @PostMapping
     public Result<TokenVo> createToken(
             @ApiParam(name = "id", value = "用户id")
-            @NotNull @RequestParam(name = "id") Integer userId
+            @NotNull @RequestParam(name = "id") Long userId
     ) {
         String token = tokenService.createTokenByUserId(userId);
 
@@ -63,7 +63,7 @@ public class TokenController {
     @PutMapping
     public Result<TokenVo> refreshToken(
             @ApiParam(name = "id", value = "用户id")
-            @NotNull @RequestParam(name = "id") Integer userId
+            @NotNull @RequestParam(name = "id") Long userId
     ) {
         String token = tokenService.refreshTokenByUserId(userId);
 

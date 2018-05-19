@@ -1,13 +1,13 @@
 package com.rias.sharing.life.user.service.impl;
 
+import com.rias.sharing.life.common.exception.GlobalException;
+import com.rias.sharing.life.common.result.CodeMsg;
+import com.rias.sharing.life.common.util.SnowFlakeUtil;
+import com.rias.sharing.life.common.util.StringUtil;
 import com.rias.sharing.life.user.dao.UserDao;
 import com.rias.sharing.life.user.entity.User;
-import com.rias.sharing.life.user.exception.GlobalException;
-import com.rias.sharing.life.user.result.CodeMsg;
 import com.rias.sharing.life.user.service.TokenService;
 import com.rias.sharing.life.user.service.aliyun.AcsService;
-import com.rias.sharing.life.user.util.SnowFlakeUtil;
-import com.rias.sharing.life.user.util.StringUtil;
 import com.rias.sharing.life.user.vo.PhoneCodeVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -89,7 +89,7 @@ public class TokenServiceImpl implements TokenService {
     }
 
     @Override
-    public String createTokenByUserId(int userId) {
+    public String createTokenByUserId(long userId) {
         String taken = StringUtil.get32UUID();
 
         //把taken放redis
@@ -100,7 +100,7 @@ public class TokenServiceImpl implements TokenService {
     }
 
     @Override
-    public String refreshTokenByUserId(int userId) {
+    public String refreshTokenByUserId(long userId) {
         if (!stringRedisTemplate.hasKey(CACHE_PRIFIX + userId)) {
             log.error("redis key: " + CACHE_PRIFIX + userId);
             throw new GlobalException(CodeMsg.TOKEN_ERROR);
