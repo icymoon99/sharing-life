@@ -9,7 +9,7 @@ import org.apache.ibatis.annotations.*;
         * @date:2018/4/23
         */
 public interface HrMapper {
-    @Select("SELECT * FROM jzt_hr WHERE id=#{id}")
+    @Select("SELECT * FROM hr WHERE id=#{id}")
     @Results({
             @Result(property = "realName", column = "real_name"),
             @Result(property = "merchantId", column = "merchant_id"),
@@ -17,7 +17,7 @@ public interface HrMapper {
     })
     Hr getById(Long id);
 
-    @Select("SELECT * FROM jzt_hr WHERE phone=#{phone}")
+    @Select("SELECT * FROM hr WHERE phone=#{phone}")
     @Results({
             @Result(property = "realName", column = "real_name"),
             @Result(property = "merchantId", column = "merchant_id"),

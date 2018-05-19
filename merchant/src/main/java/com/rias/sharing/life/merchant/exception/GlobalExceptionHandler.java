@@ -4,6 +4,7 @@ import com.rias.sharing.life.common.exception.GlobalException;
 import com.rias.sharing.life.common.result.CodeMsg;
 import com.rias.sharing.life.common.result.Result;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.validation.BindException;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -40,6 +41,8 @@ public class GlobalExceptionHandler {
             String msg = error.getDefaultMessage();
 
             return Result.error(CodeMsg.BIND_ERROR.fillArgs(msg));
+        } else if (e instanceof DuplicateKeyException){
+            return Result.error(CodeMsg.DUPLICATE_KEY_ERROR);
         } else {
             return Result.error(CodeMsg.SERVER_ERROR);
         }

@@ -1,5 +1,6 @@
 package com.rias.sharing.life.merchant.service.impl;
 
+import com.rias.sharing.life.common.util.SnowFlakeUtil;
 import com.rias.sharing.life.merchant.constants.AuditEnum;
 import com.rias.sharing.life.merchant.constants.HrStatusEnum;
 import com.rias.sharing.life.merchant.dao.AuditInfoDao;
@@ -8,10 +9,10 @@ import com.rias.sharing.life.merchant.dao.MerchantDao;
 import com.rias.sharing.life.merchant.entity.AuditInfo;
 import com.rias.sharing.life.merchant.entity.Hr;
 import com.rias.sharing.life.merchant.entity.Merchant;
-import com.rias.sharing.life.merchant.service.JztMerchantService;
+import com.rias.sharing.life.merchant.service.MerchantService;
 import com.rias.sharing.life.merchant.service.aliyun.AcsService;
 import com.rias.sharing.life.merchant.vo.MerchantVo;
-import com.rias.sharing.life.merchant.vo.TokenQueryVo;
+import com.rias.sharing.life.merchant.vo.PhoneCodeVo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +27,8 @@ import java.util.List;
  * @date:2018/4/25
  */
 @Service
-public class JztMerchantServiceImpl implements JztMerchantService {
-    private static final Logger logger = LoggerFactory.getLogger(JztMerchantServiceImpl.class);
+public class MerchantServiceImpl implements MerchantService {
+    private static final Logger logger = LoggerFactory.getLogger(MerchantServiceImpl.class);
 
     @Autowired
     MerchantDao jztMerchantDao;
@@ -36,7 +37,9 @@ public class JztMerchantServiceImpl implements JztMerchantService {
     @Autowired
     AuditInfoDao auditInfoDao;
     @Autowired
-    AcsService service;
+    AcsService acsService;
+    @Autowired
+    SnowFlakeUtil snowFlakeUtil;
 
 
     @Override
@@ -59,6 +62,9 @@ public class JztMerchantServiceImpl implements JztMerchantService {
     public void saveJztMerchant(MerchantVo jztMerchantDto){
         Hr hr = new Hr();
         Merchant merchant = new Merchant();
+
+        hr.setId(snowFlakeUtil.creatId());
+        merchant.setId(snowFlakeUtil.creatId());
 
         hr.setIdCard(jztMerchantDto.getIdCard());
         hr.setMerchantId(merchant.getId());
@@ -99,9 +105,9 @@ public class JztMerchantServiceImpl implements JztMerchantService {
     }
 
     @Override
-    public void sendCodeByPhone(TokenQueryVo query) {
+    public void sendCodeByPhone(PhoneCodeVo query) {
         //TODO 发送短信验证码loginQuery.getMsgCode
-//       boolean rst = service.sendValidateCode(query.getPhone(), query.getMessageCode(), StringUtil.get32UUID());
+//       boolean rst = acsService.sendValidateCode(query.getPhone(), query.getMessageCode(), StringUtil.get32UUID());
     }
 
     @Override

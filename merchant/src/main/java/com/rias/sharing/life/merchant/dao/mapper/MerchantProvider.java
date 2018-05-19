@@ -18,7 +18,7 @@ public class MerchantProvider {
      */
     public String updateMerchant(Merchant merchant){
         String sql =  new SQL(){{
-            UPDATE("jzt_merchant");
+            UPDATE("merchant");
             if(!StringUtils.isEmpty(merchant.getCompanyName())){SET("company_name =#{companyName}");}
             if(null != merchant.getOwnerId()){SET("owner_id =#{ownerId}");}
             if(null != merchant.getPhone()){SET("phone =#{phone}");}
@@ -35,7 +35,7 @@ public class MerchantProvider {
 
     public String saveJztMerchant(Merchant merchant) {
         return new SQL(){{
-            INSERT_INTO("jzt_merchant");
+            INSERT_INTO("merchant");
             if (null != merchant.getId()) {
                 VALUES("id","#{id}");
             }

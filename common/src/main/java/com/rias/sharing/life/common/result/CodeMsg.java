@@ -18,11 +18,18 @@ public class CodeMsg {
      */
 	public static CodeMsg SERVER_ERROR = new CodeMsg(10000100, "服务端异常");
 	public static CodeMsg BIND_ERROR = new CodeMsg(10000101, "参数校验异常：%s");
+	public static CodeMsg DUPLICATE_KEY_ERROR = new CodeMsg(10000102, "数据库重复插入");
 
     /**
      * 酒店模块
      */
 	public static CodeMsg NO_REGION_BY_ID = new CodeMsg(18120210, "通过ID查询地域不存在");
+
+    /**
+     * 商户模块
+     */
+    public static CodeMsg NO_HR_BY_ID = new CodeMsg(181260210, "通过ID查询用户不存在");
+    public static CodeMsg AUDIT_NOT_PASS = new CodeMsg(181260211, "关联的商户没有审核通过");
 	
 	private CodeMsg( ) {
 	}

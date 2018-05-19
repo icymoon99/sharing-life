@@ -34,3 +34,14 @@ eureka:
     fetch-registry: true
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
+
+aliyun:
+  asc:
+    access-key-id: LTAIRyUPzUHWE3aQ
+    access-key-secret: 6AItvovD7Pz8cBeFTJdufKE0A89abt
+  oss:
+    access-key-id: LTAIb0dQFOQqsXtu
+    access-key-secret: 25x1wuUQ0Hl5raJ7v9Dps4WBuuFPyt
+    end-point: sts.cn-hangzhou.aliyuncs.com
+    role-arn: acs:ram::1318720335258170:role/aliyunosstokengeneratorrole
+    role-session-name: external-username

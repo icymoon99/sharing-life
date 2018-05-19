@@ -18,14 +18,14 @@ public class Swagger2Config {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.rias.sharing.life.user.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.rias.sharing.life.merchant.control"))
                 .paths(PathSelectors.any())
                 .build();
     }
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("共享生活user模块")
+                .title("共享生活merchant模块")
                 .description("restful风格的api接口文档")
                 //.termsOfServiceUrl("")
                 .version("1.0")

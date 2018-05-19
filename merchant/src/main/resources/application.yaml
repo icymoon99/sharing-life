@@ -4,7 +4,7 @@ spring:
   application:
     name: merchant
 server:
-  port: 18040
+  port: 18060
 
 mybatis:
   type-aliases-package: com.rias.sharing.life.merchant.entity

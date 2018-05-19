@@ -2,7 +2,7 @@ package com.rias.sharing.life.merchant.service;
 
 import com.rias.sharing.life.merchant.entity.AuditInfo;
 import com.rias.sharing.life.merchant.vo.MerchantVo;
-import com.rias.sharing.life.merchant.vo.TokenQueryVo;
+import com.rias.sharing.life.merchant.vo.PhoneCodeVo;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ import java.util.List;
  * @author:yangyu
  * @date:2018/4/25
  */
-public interface JztMerchantService {
+public interface MerchantService {
     /**
      * @Description: 根据电话查询商户信息
      * @author:张磊
@@ -36,7 +36,7 @@ public interface JztMerchantService {
      * 发送校验码
      * @param query
      */
-    void sendCodeByPhone(TokenQueryVo query);
+    void sendCodeByPhone(PhoneCodeVo query);
 
     /**
      * 获取审核失败实现

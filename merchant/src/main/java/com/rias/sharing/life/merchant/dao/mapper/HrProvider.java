@@ -13,7 +13,7 @@ import org.apache.ibatis.jdbc.SQL;
 public class HrProvider {
     public String updateHr(Hr hr) {
         return new SQL() {{
-            UPDATE("jzt_hr");
+            UPDATE("hr");
             if (!StringUtils.isEmpty(hr.getRealName())) {
                 SET("real_name =#{realName}");
             }
@@ -35,7 +35,7 @@ public class HrProvider {
 
     public String saveJztHr(Hr hr) {
         return new SQL() {{
-            INSERT_INTO("jzt_hr");
+            INSERT_INTO("hr");
             if (null != hr.getId()) {
                 VALUES("id", "#{id}");
             }

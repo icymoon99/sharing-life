@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.*;
  */
 @Mapper
 public interface MerchantMapper {
-    @Select("SELECT * FROM jzt_merchant WHERE id = #{id}")
+    @Select("SELECT * FROM merchant WHERE id = #{id}")
     @Results({
             @Result(property = "companyName", column = "company_name"),
             @Result(property = "ownerId", column = "owner_id"),
@@ -22,7 +22,7 @@ public interface MerchantMapper {
     })
     Merchant getById(Long id);
 
-    @Select("SELECT * FROM jzt_merchant WHERE phone = #{phone}")
+    @Select("SELECT * FROM merchant WHERE phone = #{phone}")
     Merchant getByPhone(String phone);
 
     @InsertProvider(type=MerchantProvider.class,method = "saveJztMerchant")

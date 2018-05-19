@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 /**
  * @name: TokenControl
@@ -32,7 +33,8 @@ public class TokenController {
     @ApiOperation(value = "手机号登陆校验", notes = "通过手机号登陆注册，校验是否存在。不存在则生成新到用户数据")
     @PostMapping("/phone")
     public Result<UserVo> checkPhoneStatus(
-            @ApiParam(name = "PhoneCodeVo", value = "手机登陆模型") @Valid @RequestBody PhoneCodeVo phoneCodeVo
+            @ApiParam(name = "PhoneCodeVo", value = "手机登陆模型")
+            @Valid @RequestBody PhoneCodeVo phoneCodeVo
     ) {
         User user = tokenService.checkPhoneStatus(phoneCodeVo);
         log.debug(user.toString());
@@ -46,7 +48,8 @@ public class TokenController {
     @ApiOperation(value = "生成token", notes = "通知后台生成token")
     @PostMapping
     public Result<TokenVo> createToken(
-            @ApiParam(name = "id", value = "用户id") @Valid @RequestParam(name = "id") Integer userId
+            @ApiParam(name = "id", value = "用户id")
+            @NotNull @RequestParam(name = "id") Integer userId
     ) {
         String token = tokenService.createTokenByUserId(userId);
 
@@ -59,7 +62,8 @@ public class TokenController {
     @ApiOperation(value = "刷新token", notes = "通知后台刷新token")
     @PutMapping
     public Result<TokenVo> refreshToken(
-            @ApiParam(name = "id", value = "用户id") @Valid @RequestParam(name = "id") Integer userId
+            @ApiParam(name = "id", value = "用户id")
+            @NotNull @RequestParam(name = "id") Integer userId
     ) {
         String token = tokenService.refreshTokenByUserId(userId);
 

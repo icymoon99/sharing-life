@@ -11,7 +11,7 @@ import lombok.Data;
  */
 @ApiModel(value="获取id和taken模型",description="获取id和taken模型")
 @Data
-public class TakenkVo {
+public class TakenVo {
     /**
      * 用户
      */
