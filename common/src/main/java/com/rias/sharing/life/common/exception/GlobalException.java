@@ -1,7 +1,7 @@
-package com.rias.sharing.life.common.exception;
+package com.rias.sharing.life.hotel.gateway.exception;
 
 
-import com.rias.sharing.life.common.result.CodeMsg;
+import com.rias.sharing.life.hotel.gateway.result.CodeMsg;
 
 /**
  * @name: GlobalException
