@@ -27,6 +27,11 @@ public class CodeMsg {
     public static CodeMsg PHONE_CODE_SEND_FAIL = new CodeMsg(18010211, "手机验证码发送失败");
 
     /**
+     * 酒店订单模块
+     */
+    public static CodeMsg NO_ORDER_BY_ID = new CodeMsg(18120210, "通过ID查询订单不存在");
+
+    /**
      * 酒店模块
      */
 	public static CodeMsg NO_REGION_BY_ID = new CodeMsg(18120210, "通过ID查询地域不存在");
