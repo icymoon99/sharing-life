@@ -1,4 +1,4 @@
-package com.rias.sharing.life.user.config;
+package com.rias.sharing.life.hotel.order.config;
 
 import com.rias.sharing.life.common.util.SnowFlakeUtil;
 import org.springframework.beans.factory.annotation.Value;

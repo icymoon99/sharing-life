@@ -32,6 +32,9 @@ public class HotelOrderDisplayVo implements Serializable {
     @ApiModelProperty(value="结束日期",example="2018-05-03")
     private String endDate;
 
+    @ApiModelProperty(value="商户id",example="12345")
+    private Long merchantId;
+
     @ApiModelProperty(value="入住人姓名",example="张三")
     private String occupantName;
 
@@ -50,6 +53,9 @@ public class HotelOrderDisplayVo implements Serializable {
     @ApiModelProperty(value="房间地址",example="湖北省***")
     private String address;
 
-    @ApiModelProperty(value="商户id",example="12345")
-    private String merchantId;
+    @ApiModelProperty(value="房间经度",example="114276186")
+    private Integer lng;
+
+    @ApiModelProperty(value="房间纬度",example="30583755")
+    private Integer lat;
 }

@@ -4,6 +4,7 @@ import com.rias.sharing.life.common.exception.GlobalException;
 import com.rias.sharing.life.common.result.CodeMsg;
 import com.rias.sharing.life.hotel.order.dao.HotelOrderDao;
 import com.rias.sharing.life.hotel.order.entity.HotelOrder;
+import com.rias.sharing.life.hotel.order.service.HotelOrderService;
 import com.rias.sharing.life.hotel.order.vo.HotelOrderDisplayVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ import java.util.Optional;
  */
 @Slf4j
 @Service
-public class HotelOrderService implements com.rias.sharing.life.hotel.order.service.HotelOrderService {
+public class HotelOrderServiceImpl implements HotelOrderService {
     @Autowired
     HotelOrderDao hotelOrderDao;
 

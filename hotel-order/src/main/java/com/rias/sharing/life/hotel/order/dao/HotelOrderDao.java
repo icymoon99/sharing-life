@@ -6,6 +6,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * @name: HotelOrderDao
  * @author: lucifinier
@@ -18,11 +20,15 @@ public class HotelOrderDao {
     @Autowired
     HotelOrderMapper mapper;
 
-    public void createHotelOrder(HotelOrder order) {
-        mapper.createOrder(order);
+    public HotelOrder getById(Long id) {
+        return mapper.getById(id);
     }
 
-    public HotelOrder getOrderById(Long id) {
-        return mapper.getOrderById(id);
+    public List<HotelOrder> getByUserId(Long userId) {
+        return mapper.getByUserId(userId);
+    }
+
+    public int countByStatus(Long userId, Integer status) {
+        return mapper.countByStatus(userId, status);
     }
 }

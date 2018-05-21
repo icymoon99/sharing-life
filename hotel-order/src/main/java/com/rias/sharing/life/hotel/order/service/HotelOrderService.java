@@ -1,4 +1,6 @@
-package com.rias.sharing.life.hotel.order.service.impl;
+package com.rias.sharing.life.hotel.order.service;
+
+import com.rias.sharing.life.hotel.order.vo.HotelOrderDisplayVo;
 
 /**
  * @name: HotelOrderService
@@ -7,4 +9,5 @@ package com.rias.sharing.life.hotel.order.service.impl;
  * @description: TODO
  */
 public interface HotelOrderService {
+    HotelOrderDisplayVo getHotelOrderById(long id);
 }
