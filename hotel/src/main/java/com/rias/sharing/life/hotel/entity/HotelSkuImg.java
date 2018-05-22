@@ -17,7 +17,7 @@ public class HotelSkuImg {
     /**
      * sku id
      */
-    private Long sku_id;
+    private Long skuId;
     /**
      * 图片地址
      */

@@ -6,7 +6,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -21,7 +20,7 @@ public class HotelSkuDao {
     @Autowired
     HotelSkuMapper mapper;
 
-    List<HotelSku> getHotelSkuByIdAndDate(Long id, LocalDate startDate, LocalDate endDate) {
-        return mapper.getHotelSkuByIdAndDate(id, startDate, endDate);
+    public List<HotelSku> getById(Long id) {
+        return mapper.getById(id);
     }
 }

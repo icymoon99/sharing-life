@@ -21,7 +21,7 @@ public class CodeMsg {
 	public static CodeMsg DUPLICATE_KEY_ERROR = new CodeMsg(10000102, "数据库重复插入");
 
     /**
-     * 登录模块
+     * 用户模块
      */
     public static CodeMsg TOKEN_ERROR = new CodeMsg(18010210, "Token不存在或者已经失效");
     public static CodeMsg PHONE_CODE_SEND_FAIL = new CodeMsg(18010211, "手机验证码发送失败");

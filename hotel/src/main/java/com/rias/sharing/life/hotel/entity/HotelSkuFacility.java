@@ -21,5 +21,5 @@ public class HotelSkuFacility {
     /**
      * 设备名称
      */
-    private Integer facility;
+    private Long facilityId;
 }

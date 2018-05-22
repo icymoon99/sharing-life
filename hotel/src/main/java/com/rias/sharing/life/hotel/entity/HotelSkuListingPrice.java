@@ -11,7 +11,7 @@ import java.time.LocalDate;
  * @description: 酒店日价格
  */
 @Data
-public class HotelSkuDailyPrice {
+public class HotelSkuListingPrice {
     /**
      * id
      */
@@ -19,7 +19,7 @@ public class HotelSkuDailyPrice {
     /**
      * sku id
      */
-    private Long sku_id;
+    private Long skuId;
     /**
      * 日期
      */
