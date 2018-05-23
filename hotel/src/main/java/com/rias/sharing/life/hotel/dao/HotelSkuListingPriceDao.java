@@ -18,7 +18,7 @@ public class HotelSkuListingPriceDao {
     @Autowired
     private HotelSkuListingPriceMapper mapper;
 
-    public List<HotelSkuListingPrice> getByskuId(Long skuId) {
-        return mapper.getByskuId(skuId);
+    public List<HotelSkuListingPrice> getBySkuId(Long skuId) {
+        return mapper.getBySkuId(skuId);
     }
 }

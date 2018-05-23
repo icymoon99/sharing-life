@@ -5,6 +5,7 @@ import com.rias.sharing.life.hotel.entity.HotelSkuDailyStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -18,7 +19,7 @@ public class HotelSkuDailyStatusDao {
     @Autowired
     private HotelSkuDailyStatusMapper mapper;
 
-    public List<HotelSkuDailyStatus> getByskuId(Long skuId) {
-        return mapper.getByskuId(skuId);
+    public List<HotelSkuDailyStatus> getBySkuId(Long skuId, LocalDate startDate, LocalDate endDate) {
+        return mapper.getBySkuId(skuId, startDate, endDate);
     }
 }

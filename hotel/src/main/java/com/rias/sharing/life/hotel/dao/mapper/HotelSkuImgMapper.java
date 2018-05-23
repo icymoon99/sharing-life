@@ -19,5 +19,5 @@ public interface HotelSkuImgMapper {
             @Result(column = "sku_id", property = "skuId"),
             @Result(column = "img_url", property = "imgUrl")
     })
-    List<HotelSkuImg> getByskuId(Long skuId);
+    List<HotelSkuImg> getBySkuId(Long skuId);
 }

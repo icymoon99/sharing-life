@@ -19,5 +19,5 @@ public interface HotelSkuFacilityMapper {
             @Result(column = "sku_id", property = "skuId"),
             @Result(column = "facility_id", property = "facilityId")
     })
-    List<HotelSkuFacility> getByskuId(Long skuId);
+    List<HotelSkuFacility> getBySkuId(Long skuId);
 }

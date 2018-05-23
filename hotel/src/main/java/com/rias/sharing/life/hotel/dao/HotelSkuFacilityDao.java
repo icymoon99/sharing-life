@@ -18,7 +18,7 @@ public class HotelSkuFacilityDao {
     @Autowired
     private HotelSkuFacilityMapper mapper;
 
-    public List<HotelSkuFacility> getByskuId(Long skuId) {
-        return mapper.getByskuId(skuId);
+    public List<HotelSkuFacility> getBySkuId(Long skuId) {
+        return mapper.getBySkuId(skuId);
     }
 }

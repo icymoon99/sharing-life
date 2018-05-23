@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.time.LocalDate;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class HotelCoreApplicationTests {
@@ -23,10 +25,10 @@ public class HotelCoreApplicationTests {
 
     @Test
     public void contextLoads() {
-        System.out.println(imgDao.getByskuId(Long.valueOf(1)));
-        System.out.println(priceDao.getByskuId(Long.valueOf(1)));
-        System.out.println(facilityDao.getByskuId(Long.valueOf(1)));
-        System.out.println(statusDao.getByskuId(Long.valueOf(1)));
+        System.out.println(imgDao.getBySkuId(Long.valueOf(1)));
+        System.out.println(priceDao.getBySkuId(Long.valueOf(1)));
+        System.out.println(facilityDao.getBySkuId(Long.valueOf(1)));
+        System.out.println(statusDao.getBySkuId(Long.valueOf(1), LocalDate.now(), LocalDate.now().plusDays(1)));
         System.out.println(dao.getById(Long.valueOf(1)));
     }
 

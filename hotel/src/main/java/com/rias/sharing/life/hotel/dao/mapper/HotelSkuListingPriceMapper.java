@@ -18,5 +18,5 @@ public interface HotelSkuListingPriceMapper {
     @Results({
             @Result(column = "sku_id", property = "skuId"),
     })
-    List<HotelSkuListingPrice> getByskuId(Long skuId);
+    List<HotelSkuListingPrice> getBySkuId(Long skuId);
 }
