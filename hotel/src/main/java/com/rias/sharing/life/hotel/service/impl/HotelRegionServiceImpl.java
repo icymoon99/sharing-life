@@ -1,10 +1,10 @@
 package com.rias.sharing.life.hotel.service.impl;
 
 
+import com.rias.sharing.life.common.exception.GlobalException;
+import com.rias.sharing.life.common.result.CodeMsg;
 import com.rias.sharing.life.hotel.dao.HotelRegionDao;
 import com.rias.sharing.life.hotel.entity.HotelRegion;
-import com.rias.sharing.life.hotel.exception.GlobalException;
-import com.rias.sharing.life.hotel.result.CodeMsg;
 import com.rias.sharing.life.hotel.service.HotelRegionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

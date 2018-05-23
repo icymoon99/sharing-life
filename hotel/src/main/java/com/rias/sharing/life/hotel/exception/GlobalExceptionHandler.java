@@ -1,7 +1,8 @@
 package com.rias.sharing.life.hotel.exception;
 
-import com.rias.sharing.life.hotel.result.CodeMsg;
-import com.rias.sharing.life.hotel.result.Result;
+import com.rias.sharing.life.common.exception.GlobalException;
+import com.rias.sharing.life.common.result.CodeMsg;
+import com.rias.sharing.life.common.result.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.BindException;
 import org.springframework.validation.ObjectError;
