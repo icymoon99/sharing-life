@@ -6,8 +6,6 @@ import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 
-import java.util.List;
-
 /**
  * @name: HotelSkuMapper
  * @author: lucifinier
@@ -26,5 +24,5 @@ public interface HotelSkuMapper {
             @Result(column = "on_sale", property = "onSale"),
             @Result(column = "tag_id", property = "tagId")
     })
-    List<HotelSku> getById(@Param("id") Long id);
+    HotelSku getById(@Param("id") Long id);
 }

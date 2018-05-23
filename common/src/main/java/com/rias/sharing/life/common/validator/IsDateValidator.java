@@ -6,7 +6,7 @@ import org.apache.commons.lang3.StringUtils;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-public class IsMobileValidator implements ConstraintValidator<IsMobile, String> {
+public class IsDateValidator implements ConstraintValidator<IsMobile, String> {
 
 	private boolean required = false;
 	
@@ -18,12 +18,12 @@ public class IsMobileValidator implements ConstraintValidator<IsMobile, String> 
 	@Override
 	public boolean isValid(String value, ConstraintValidatorContext context) {
 		if(required) {
-			return ValidatorUtil.isDate(value);
+			return ValidatorUtil.isMobile(value);
 		}else {
 			if(StringUtils.isEmpty(value)) {
 				return true;
 			}else {
-				return ValidatorUtil.isDate(value);
+				return ValidatorUtil.isMobile(value);
 			}
 		}
 	}

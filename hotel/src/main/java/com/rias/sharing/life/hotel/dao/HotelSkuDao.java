@@ -6,8 +6,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
 /**
  * @name: HotelSkuDao
  * @author: lucifinier
@@ -20,7 +18,7 @@ public class HotelSkuDao {
     @Autowired
     HotelSkuMapper mapper;
 
-    public List<HotelSku> getById(Long id) {
+    public HotelSku getById(Long id) {
         return mapper.getById(id);
     }
 }

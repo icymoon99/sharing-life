@@ -16,9 +16,11 @@ import java.util.List;
  * @description: TODO
  */
 public interface HotelSkuDailyStatusMapper {
-    @Select("SELECT * FROM hotel_sku_daily_status WHERE sku_id = #{skuId} AND date >=#{startDate} AND date <#{endDate}")
+    @Select("SELECT * FROM hotel_sku_daily_status WHERE sku_id = #{skuId} AND date >= #{startDate} AND date < #{endDate}")
     @Results({
             @Result(column = "sku_id", property = "skuId"),
     })
-    List<HotelSkuDailyStatus> getBySkuId(@Param("skuId") Long skuId, @Param("startDate") LocalDate startDate, @Param("endDate") LocalDate endDate);
+    List<HotelSkuDailyStatus> getBySkuId(@Param("skuId") Long skuId,
+                                         @Param("startDate") LocalDate startDate,
+                                         @Param("endDate") LocalDate endDate);
 }

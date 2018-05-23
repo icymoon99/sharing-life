@@ -17,16 +17,21 @@ import java.io.Serializable;
 public class HotelRegionVo implements Serializable {
     private static final long serialVersionUID = 3618592273802961055L;
 
-    @ApiModelProperty(value="属性ID",example="87d9fe4238f74d84be15d62984fdfe65")
+    @ApiModelProperty(value="属性ID",example="1")
     private long id;
-    @ApiModelProperty(value="父项属性id",example="87d9fe4238f74d84be15d62984fdfe90")
+
+    @ApiModelProperty(value="父项属性id",example="11")
     private long parentId;
+
     @ApiModelProperty(value="位置名称",example="武汉")
     private String name;
+
     @ApiModelProperty(value="经度",example="114309558")
     private Integer lng;
+
     @ApiModelProperty(value="维度",example="30589084")
     private Integer lat;
+
     @ApiModelProperty(value="权重",example="125")
     private Integer weight;
 
