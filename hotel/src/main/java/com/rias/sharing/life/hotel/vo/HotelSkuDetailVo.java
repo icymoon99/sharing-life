@@ -124,7 +124,10 @@ public class HotelSkuDetailVo {
             }
         }
 
-
+        // 更新首日价格和总状态
+        vo.setRoomPrice(vo.getPrices().get(0));
+        vo.setRoomStatus(vo.getStatuses().stream()
+                .max(Integer::compareTo).get());
 
         return vo;
     }
