@@ -35,6 +35,7 @@ public class CodeMsg {
      * 酒店模块
      */
 	public static CodeMsg NO_REGION_BY_ID = new CodeMsg(18120210, "通过ID查询地域不存在");
+	public static CodeMsg SKU_DUPLICATE_KEY = new CodeMsg(18120211, "相同ID的SKU已存在");
 
     /**
      * 商户模块

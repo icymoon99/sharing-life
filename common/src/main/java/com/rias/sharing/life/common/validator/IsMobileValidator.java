@@ -18,12 +18,12 @@ public class IsMobileValidator implements ConstraintValidator<IsMobile, String> 
 	@Override
 	public boolean isValid(String value, ConstraintValidatorContext context) {
 		if(required) {
-			return ValidatorUtil.isDate(value);
+			return ValidatorUtil.isMobile(value);
 		}else {
 			if(StringUtils.isEmpty(value)) {
 				return true;
 			}else {
-				return ValidatorUtil.isDate(value);
+				return ValidatorUtil.isMobile(value);
 			}
 		}
 	}
