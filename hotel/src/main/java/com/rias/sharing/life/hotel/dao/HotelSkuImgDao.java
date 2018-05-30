@@ -21,4 +21,8 @@ public class HotelSkuImgDao {
     public List<HotelSkuImg> getBySkuId(Long skuId) {
         return mapper.getBySkuId(skuId);
     }
+
+    public void save(List<HotelSkuImg> imgs) {
+        mapper.save(imgs);
+    }
 }

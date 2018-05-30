@@ -9,4 +9,10 @@ server:
 mybatis:
   type-aliases-package: com.rias.sharing.life.user.entity
 
+snow-flake:
+  date-center:
+    id: 1
+  machine:
+    id: 1
+
 

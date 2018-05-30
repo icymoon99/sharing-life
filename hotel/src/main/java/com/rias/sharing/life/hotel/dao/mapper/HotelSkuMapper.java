@@ -1,10 +1,7 @@
 package com.rias.sharing.life.hotel.dao.mapper;
 
 import com.rias.sharing.life.hotel.entity.HotelSku;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 /**
  * @name: HotelSkuMapper
@@ -25,4 +22,7 @@ public interface HotelSkuMapper {
             @Result(column = "tag_id", property = "tagId")
     })
     HotelSku getById(@Param("id") Long id);
+
+    @InsertProvider(type = HotelSkuProvider.class, method = "save")
+    void save(HotelSku sku);
 }

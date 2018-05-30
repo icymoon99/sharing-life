@@ -72,6 +72,40 @@ public class HotelSkuDetailVo {
     @ApiModelProperty(value="房间日价格")
     private List<Integer> prices;
 
+    public static HotelSku makeSku(HotelSkuDetailVo vo) {
+        HotelSku sku = new HotelSku();
+
+        sku.setId(vo.getId());
+        sku.setSkuName(vo.getSkuName());
+        sku.setRegionId(vo.getRegionId());
+        sku.setAddress(vo.getAddress());
+        sku.setLng(vo.getLng());
+        sku.setLat(vo.getLat());
+        sku.setMerchantId(vo.getMerchantId());
+        sku.setRoomPrice(vo.getRoomPrice());
+        sku.setRoomBond(vo.getRoomBond());
+        sku.setRoomStatus(vo.getRoomStatus());
+        sku.setTagId(vo.getTagId());
+
+        return sku;
+    }
+
+    public static List<HotelSkuImg> makeImg(HotelSkuDetailVo vo) {
+        List<HotelSkuImg> imgs = vo.getImgUrls().stream()
+                .map(imgUrl -> new HotelSkuImg(null, vo.getId(), imgUrl))
+                .collect(Collectors.toList());
+
+        return imgs;
+    }
+
+    public static List<HotelSkuFacility> makeFacility(HotelSkuDetailVo vo) {
+        List<HotelSkuFacility> facilities = vo.getFacilities().stream()
+                .map(facilitie -> new HotelSkuFacility(null,vo.getId(), facilitie))
+                .collect(Collectors.toList());
+
+        return facilities;
+    }
+
     public static HotelSkuDetailVo make(LocalDate startDate, LocalDate endDate,
             HotelSku sku, List<HotelSkuImg> imgs, List<HotelSkuFacility> facilities,
             List<HotelSkuDailyStatus> statuses, List<HotelSkuListingPrice> prices) {

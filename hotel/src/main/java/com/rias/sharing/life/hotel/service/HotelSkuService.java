@@ -1,7 +1,7 @@
 package com.rias.sharing.life.hotel.service;
 
 import com.rias.sharing.life.hotel.vo.HotelSkuDetailVo;
-import com.rias.sharing.life.hotel.vo.HotelSkuQueryVo;
+import com.rias.sharing.life.hotel.module.HotelSkuQueryVo;
 
 /**
  * @name: HotelSkuService
@@ -11,4 +11,6 @@ import com.rias.sharing.life.hotel.vo.HotelSkuQueryVo;
  */
 public interface HotelSkuService {
     HotelSkuDetailVo getHotelSkuDetail(HotelSkuQueryVo queryVo);
+
+    void createHotelSkuDetail(HotelSkuDetailVo vo);
 }

@@ -1,5 +1,6 @@
 package com.rias.sharing.life.hotel.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
@@ -9,6 +10,7 @@ import lombok.Data;
  * @description: 酒店图片
  */
 @Data
+@AllArgsConstructor
 public class HotelSkuImg {
     /**
      * id

@@ -1,9 +1,7 @@
 package com.rias.sharing.life.hotel.dao.mapper;
 
 import com.rias.sharing.life.hotel.entity.HotelSkuFacility;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -20,4 +18,12 @@ public interface HotelSkuFacilityMapper {
             @Result(column = "facility_id", property = "facilityId")
     })
     List<HotelSkuFacility> getBySkuId(Long skuId);
+
+    @Insert("<script> " +
+            "INSERT INTO hotel_sku_facility (id,sku_id,facility_id) VALUES " +
+            "<foreach collection='facilityList' item='item'  separator=',' >" +
+            "(#{item.id},#{item.skuId},#{item.facilityId})" +
+            "</foreach>" +
+            "</script>")
+    void save(@Param(value = "facilityList") List<HotelSkuFacility> facilities);
 }

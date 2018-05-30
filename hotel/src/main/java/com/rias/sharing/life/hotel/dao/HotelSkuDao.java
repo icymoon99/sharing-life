@@ -21,4 +21,8 @@ public class HotelSkuDao {
     public HotelSku getById(Long id) {
         return mapper.getById(id);
     }
+
+    public void save(HotelSku sku) {
+        mapper.save(sku);
+    }
 }
